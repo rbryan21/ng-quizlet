@@ -9,6 +9,11 @@ ng-quiz-let-ripoff is an application created using the MEAN stack with the new a
 
 **Repository Location URL:** [GitHub Repo](https://github.com/rbryan21/ng-quizlet-ripoff)
 
+## Program Features
+- User authentication system 
+- Flashcard set creation, storage, updation, and deletion
+- Flashcard set viewing
+
 ##  Technology Components
 - MongoDB database (hosted on mLab)
 - Node.js and Express RESTful API
