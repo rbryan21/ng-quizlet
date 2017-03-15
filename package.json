@@ -1,0 +1,25 @@
+{
+  "name": "ng-quizlet-ripoff",
+  "version": "0.0.0",
+  "description": "A simple quizlet-ripoff app built using the MEAN stack",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Robert Bryan",
+  "license": "MIT",
+  "dependencies": {
+    "express": "*",
+    "mongoose": "*",
+    "bcryptjs": "*",
+    "cors": "*",
+    "jsonwebtoken": "*",
+    "body-parser": "*",
+    "passport": "*",
+    "passport-jwt": "*"
+  },
+  "devDependencies": {
+    "nodemon": "*"
+  }
+}
