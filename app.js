@@ -20,6 +20,7 @@ mongoose.connection.on('error', (err) => {
 const app = express();
 
 const users = require('./routes/users');
+const flashcardset = require('./routes/flashcardsets');
 
 // Port Number
 const port = 3000;
@@ -40,6 +41,7 @@ app.use(passport.session());
 require('./config/passport')(passport);
 
 app.use('/users', users);
+app.use('/flashcardsets', flashcardset);
 
 app.get('/', (req, res) => {
   res.send('Invalid endpoint');
