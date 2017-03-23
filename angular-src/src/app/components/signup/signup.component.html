@@ -1,60 +1,28 @@
-<form #f="ngForm" (ngSubmit)="onSubscribe(f.form)">
-    <div class="form-group">
-        <label for="name">Name</label>
-        <input 
-            ngControl="name" 
-            #name="ngForm" 
-            id="name" 
-            type="text" 
-            class="form-control" 
-            required
-            minlength="3">
-        <div *ngIf="name.touched && name.errors">
-            <div 
-                class="alert alert-danger" 
-                *ngIf="name.errors.required">
-                Name is required.
-            </div>
-            <div
-                class="alert alert-danger"
-                *ngIf="name.errors.minlength">
-                Name should be minimum {{ name.errors.minlength.requiredLength }} characters.
-            </div>
-        </div>
+<h2>Signup Form</h2>
+
+<form action="/action_page.php" style="border:1px solid #ccc">
+  <div class="container">
+
+    <label><b>First Name</b></label>
+    <input type="text" placeholder="Enter First Name" name="firstName" required>
+
+    <label><b>Last Name</b></label>
+    <input type="text" placeholder="Enter Last Name" name="lastName" required>
+
+    <label><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" required>
+
+    <label><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" required>
+
+    <label><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
+    <input type="checkbox" checked="checked"> Remember me
+    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+
+    <div class="clearfix">
+      <button type="button" class="cancelbtn">Cancel</button>
+      <button type="submit" class="signupbtn">Sign Up</button>
     </div>
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input 
-            ngControl="email" 
-            #email="ngForm" 
-            id="email" 
-            type="email" 
-            class="form-control" 
-            required>
-        <div 
-            class="alert alert-danger" 
-            *ngIf="email.touched && !email.valid">
-            Email is required.
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="frequency">Frequency of emails</label>
-        <select
-            ngControl="frequency" 
-            #frequency="ngForm" 
-            id="frequency" 
-            class="form-control" 
-            required>
-            <option value=""></option>
-            <option *ngFor="#frequency of frequencies" value="{{ frequency.id }}">
-                {{ frequency.label }}
-            </option>
-        </select> 
-        <div 
-            class="alert alert-danger" 
-            *ngIf="frequency.touched && !frequency.valid">
-            This field is required.
-        </div>
-    </div>
-    <button class="btn btn-primary" type="submit" [disabled]="!f.valid">Subscribe</button>
+  </div>
 </form>

@@ -1,9 +1,9 @@
+
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-                aria-expanded="false">
+             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -15,10 +15,12 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Sign-Up <span class="sr-only">(current)</span></a></li>
-                <li><a href="#"><span class="glyphicon glyphicon-plus"></span>Create Flashcard</a></li>
+                <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"><a  [routerLink]="['/']">Home <span class="sr-only">(current)</span></a></li>
+                <li [routerLinkActive]="['active']"><a [routerLink]="['/login']">Login</a></li>
+                <li [routerLinkActive]="['active']"><a  [routerLink]="['/signup']">Sign-UP</a></li>
             </ul>
-            <form class="navbar-form navbar-right">
+
+            <form class="navbar-form navbar-nav navbar-right ">
                 <div class="form-group">
                     <input type="text" class="form-control" placeholder="Search">
                 </div>
@@ -29,12 +31,3 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
-
-<!-- start of jumbotron container -->
-<div class="container">
-  <div class="jumbotron" style="background-image:url('src/app/images/potts-ggc.png'); opacity:.5">
-    <h1 style=" color: white ">Welcome to Quizlet RipOff <small style="color:darkblue"><strong>Demo of MEAN Stack</strong></small></h1>
-    <p style="color: white ">This app is to show how essential a full-stack developer can be</p>
-  </div>
-</div>
-<!-- end of jumbotron container -->

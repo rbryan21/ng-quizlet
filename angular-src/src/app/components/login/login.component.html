@@ -1,3 +1,29 @@
-<p>
-  login works!
-</p>
+<body>
+<h1>Login Page</h1>
+<h2>Welcome {{ firstName + lastName}} </h2>
+<br>
+
+
+<form action="" class="form-inline">
+  <div class="container form-group">
+    <div> 
+      <label for="firstName">First Name:</label> 
+      <input type="text" class="form-control mb-2 mr-sm-2 mb-sm-0" 
+        name="firstName" [(ngModel)]="firstName" size="30" required> 
+      <label for="lastName">Last Name: </label> 
+      <input type="text" class="form-control" name="lastName" [(ngModel)]="lastName" size="30" required>     
+    </div>
+    <br>
+    <div>
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" size="50" required>
+      <br>
+      <p></p>
+      <label><b>Repeat Password</b></label>
+      <input type="password" placeholder="Repeat Password" name="psw-repeat" size="50"required>
+    </div>
+  </div>
+</form>
+
+<button type="submit" class="btn btn-primary">Submit</button> 
+</body>
