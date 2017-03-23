@@ -14,8 +14,6 @@ router.post('/register', (req, res, next) => {
         password: req.body.password
     });
 
-    console.log(newUser);
-
     User.addUser(newUser, (err, user) => {
         if (err) {
             res.json({success: false, msg:'Failed to register user'});
@@ -27,13 +25,13 @@ router.post('/register', (req, res, next) => {
 
 // Register
 router.post('/authenticate', (req, res, next) => {
-    const username = req.body.username; // get username from form
+    const email = req.body.email; // get username from form
     const password = req.body.password; // get password from form
 
-    User.getUserByUsername(username, (err, user) => {
+    User.getUserByEmail(email, (err, user) => {
         if (err) throw err;
         if (!user) { // no user found
-            return res.json({success: false, msg: 'User not found'});
+            return res.json({success: false, message: 'User not found'});
         }
 
         User.comparePassword(password, user.password, (err, isMatch) => { // compare the entered password to the user's password within db
@@ -49,12 +47,11 @@ router.post('/authenticate', (req, res, next) => {
                     user: {
                         id: user._id,
                         name: user.name,
-                        username: user.username,
                         email: user.email
                     }
                 })
             } else { // if there's no match
-                return res.json({success: false, msg: 'Incorrect Password'});
+                return res.json({success: false, message: 'Incorrect Password'});
             }
         })
     });
