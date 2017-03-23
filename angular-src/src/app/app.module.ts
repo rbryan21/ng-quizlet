@@ -12,13 +12,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ViewFlashcardSetComponent } from './components/view-flashcard-set/view-flashcard-set.component';
 import { HomeComponent } from './components/home/home.component';
 
+import { ValidateService } from './services/validate.service';
+import { FlashMessagesModule } from 'angular2-flash-messages';
+
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'view-flashcard-set', component: ViewFlashcardSetComponent},
-
+  {path: 'view-flashcard-set', component: ViewFlashcardSetComponent}
 ]
 
 @NgModule({
@@ -35,9 +37,10 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FlashMessagesModule
   ],
-  providers: [],
+  providers: [ ValidateService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,6 +8,6 @@ var dbPass = process.env.PASSWORD;
 // export KEY='password'
 
 module.exports = {
-    database: 'mongodb://' + user + ':' + dbPass + '@ds131320.mlab.com:31320/quizlet-ripoff',
+    database: 'mongodb://admin:admin@ds131320.mlab.com:31320/quizlet-ripoff',
     secret: 'yoursecret'
 }
