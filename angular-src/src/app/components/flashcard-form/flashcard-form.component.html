@@ -7,7 +7,7 @@
       <form [formGroup]="myForm" novalidate (submit)="saveFlashcardSet()">
         <div class="form-group">
           <label>Subject</label>
-          <input type="text" class="form-control" formControlName="subject">
+          <input type="text" class="form-control" [(ngModel)] = "name" formControlName="subject">
           <small *ngIf="!myForm.controls.subject.valid" class="text-danger">
               Subject is required (minimum 3 characters).
             </small>

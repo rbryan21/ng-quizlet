@@ -8,9 +8,15 @@ const FlashcardSetSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    email: {
-        type: String,
-        required: true
+    author: {
+        email: {
+            type: String,
+            required: true
+        },
+        author_id: {
+            type: String, 
+            required: true
+        }
     },
     flashcards: [{
         term: {
@@ -36,7 +42,7 @@ module.exports.getFlashcardSetsForUser = function(username, callback) {
 }
 
 module.exports.addFlashcardSet = function(newFlashcardSet, callback) {
-
+    newFlashcardSet.save(callback);
 }
 
 module.exports.updateFlashcardSet = function(flashcardSet, callback) {

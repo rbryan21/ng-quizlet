@@ -15,6 +15,9 @@ export class FlashcardFormComponent implements OnInit {
 
   public myForm: FormGroup;
 
+  name: string;
+  flashcards: Flashcard[];
+
     constructor(
         private _fb: FormBuilder,
         private flashcardService: FlashcardService,
@@ -23,6 +26,7 @@ export class FlashcardFormComponent implements OnInit {
 
     ngOnInit() {
         this.myForm = this._fb.group({
+            author: JSON.parse(localStorage.getItem('user')),
             subject: ['', [Validators.required, Validators.minLength(3)]],
             flashset: this._fb.array([])
         });
@@ -46,9 +50,7 @@ export class FlashcardFormComponent implements OnInit {
     addFlashset() {
         const control = <FormArray>this.myForm.controls['flashset'];
         const flashsetCtrl = this.initFlashset();
-        
         control.push(flashsetCtrl);
-        
         /* subscribe to individual flashset value changes */
         // flashsetCtrl.valueChanges.subscribe(x => {
         //   console.log(x);

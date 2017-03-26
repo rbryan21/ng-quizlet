@@ -7,9 +7,24 @@ const FlashcardSet = require('../models/flashcardset');
 
 // Add new flashcard set
 router.post('/create', (req, res, next) => {
-    var name = req.body.subject;
-    var flashcards = req.body.flashset;
-    console.log('First card', flashcards[0]);
+    
+    var newFlashcardSet = new FlashcardSet({
+        name: req.body.subject,
+        author: {
+            author_id : req.body.author.id,
+            email: req.body.author.email
+        },
+        flashcards: req.body.flashset 
+    });
+
+    FlashcardSet.addFlashcardSet(newFlashcardSet, (err, set) => {
+        if (err) {
+            res.json({success: false, msg:'Flashcard set unsuccessfully added.'});
+        } else {
+            res.json({success: true, msg:'Flashcard set successfully added!'});
+        }
+    });
+
 });
 
 // Update flash card set
