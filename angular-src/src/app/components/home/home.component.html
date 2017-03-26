@@ -1,13 +1,22 @@
-<!-- start of jumbotron container -->
-<div class="container">
-  <div class="jumbotron" style="background-image:url('./src/app/images/potts-ggc.png'); opacity: .5">
-    <h1 style=" color: white ">Welcome to Quizlet RipOff <small style="color:darkblue"><strong>Demo of MEAN Stack</strong></small></h1>
-    <p style="color: white ">This app is to show how essential a full-stack developer can be</p>
-  </div>
+
+<div class="jumbotron">
+  <h1>Quizlet RipOff</h1>
+  <p>...</p>
+  <p class="btn btn-lg"><a [routerLink]="['/login']">Login</a></p>
+  <p class="btn btn-lg"><a [routerLink]="['/signup']">Sign-up</a></p>
 </div>
 <!-- end of jumbotron container -->
 
-<div class="btn-group-lg" style="text-align: center">
-  <button type="button" class="btn btn-lg btn-success"><a [routerLink]="['/login']">Login</a></button>
-  <button type="button" class="btn btn-lg btn-inf0"><a [routerLink]="['/signup']">Sign-UP</a></button>
+<div class="page-header">
+  <div class="row">
+   <div class="col-sm-6 box-sizing: border-box pull-left" id="statment">
+  <h2>Simple tools for learning anything</h2>
+  <p>Search millions of study sets or create your own.  Improve your grades by studying with flashcards, games and more</p>
+  </div>
+ 
+<div class="col-sm-6 border-box: border-box pull-right">
+  <img src="./src/app/images/studying.jpg" alt="Studing" height="300" width="400" />
 </div>
+  </div>
+</div>
+

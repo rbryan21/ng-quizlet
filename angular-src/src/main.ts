@@ -8,4 +8,8 @@ if (environment.production) {
   enableProdMode();
 }
 
+//might need to add const platform = platformBrowserDynamic();
+const platform = platformBrowserDynamic();
 platformBrowserDynamic().bootstrapModule(AppModule);
+
+

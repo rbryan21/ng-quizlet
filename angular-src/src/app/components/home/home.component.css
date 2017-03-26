@@ -1,0 +1,27 @@
+.btn {
+  background-color: black;
+  color: ghostwhite;
+  font-weight: bold;
+  font-size: 20px;
+
+}
+
+h1 {
+  color: white;
+}
+
+h2 {
+  color: black;
+}
+
+.jumbotron {
+  max-width: 100%;
+  background-image: url(/src/app/images/potts-ggc.png);
+  opacity: .6;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+#statment {
+  padding: 20px;
+}

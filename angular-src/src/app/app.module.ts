@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -15,13 +15,17 @@ import { HomeComponent } from './components/home/home.component';
 import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
+import { FlashcardFormComponent } from './components/flashcard-form/flashcard-form.component';
+import { FlashsetComponent } from './components/flashcard-form/flashset/flashset.component';
+import { SidebarNavComponent } from './components/sidebar-nav/sidebar-nav.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'signup', component: SignupComponent},
   {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'view-flashcard-set', component: ViewFlashcardSetComponent}
+  {path: 'view-flashcard-set', component: ViewFlashcardSetComponent},
+  {path: 'flashcard', component: FlashcardFormComponent}
 ]
 
 @NgModule({
@@ -32,16 +36,25 @@ const appRoutes: Routes = [
     SignupComponent,
     DashboardComponent,
     ViewFlashcardSetComponent,
-    HomeComponent
+    HomeComponent,
+    FlashcardFormComponent,
+    FlashsetComponent,
+    SidebarNavComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule.forRoot(appRoutes),
-    FlashMessagesModule
+    FlashMessagesModule,
+    ReactiveFormsModule,
+    
   ],
   providers: [ ValidateService, AuthService ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+  
+}

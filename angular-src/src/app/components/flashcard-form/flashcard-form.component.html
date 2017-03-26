@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="margin-20">
+        <h3>Add Flashcard</h3>
+      </div>
+      <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+        <div class="form-group">
+          <label>Subject</label>
+          <input type="text" class="form-control" formControlName="subject">
+          <small *ngIf="!myForm.controls.subject.valid" class="text-danger">
+              Subject is required (minimum 3 characters).
+            </small>
+        </div>
+
+        <!--flashset-->
+        <div formArrayName="flashset">
+          <div *ngFor="let flashset of myForm.controls.flashset.controls; let i=index" class="panel panel-default">
+            <div class="panel-heading">
+              <span>Flashset {{i + 1}}</span>
+              <span class="glyphicon glyphicon-remove pull-right" *ngIf="myForm.controls.flashset.controls.length > 1" (click)="removeFlashset(i)"></span>
+            </div>
+            <div class="panel-body" [formGroupName]="i">
+              <app-flashset [group]="myForm.controls.flashset.controls[i]"></app-flashset>
+            </div>
+          </div>
+        </div>
+
+        <div class="margin-20">
+          <a (click)="addFlashset()" style="cursor: default">
+            Add another flashset +
+          </a>
+        </div>
+
+        <div class="margin-20">
+          <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
+        </div>
+        <div class="clearfix"></div>
+
+      </form>
+    </div>
+  </div>
+</div> 

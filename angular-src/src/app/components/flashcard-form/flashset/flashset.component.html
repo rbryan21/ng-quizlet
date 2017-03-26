@@ -1,0 +1,13 @@
+<div [formGroup]="flashsetForm">
+    <div class="form-group col-xs-6">
+        <label>term</label>
+        <input type="text" class="form-control" formControlName="term">
+        <small [hidden]="flashsetForm.controls.term.valid" class="text-danger">
+            Term is required
+        </small>
+    </div>
+    <div class="form-group col-xs-6">
+        <label>definition</label>
+        <input type="text" class="form-control" formControlName="definition">
+    </div>
+</div>

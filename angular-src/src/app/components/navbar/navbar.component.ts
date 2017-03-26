@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
   constructor(
     private flashMessage: FlashMessagesService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
   ) { }
 
   ngOnInit() {
@@ -25,4 +25,6 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['login']);
     return false;
   }
+
+ 
 }
