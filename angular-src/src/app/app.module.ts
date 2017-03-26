@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 
 import { ValidateService } from './services/validate.service';
 import { AuthService } from './services/auth.service';
+import { FlashcardService } from './services/flashcard.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { FlashcardFormComponent } from './components/flashcard-form/flashcard-form.component';
 import { FlashsetComponent } from './components/flashcard-form/flashset/flashset.component';
@@ -52,7 +53,9 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     
   ],
-  providers: [ ValidateService, AuthService ],
+  providers: [ ValidateService, 
+               AuthService,
+               FlashcardService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { 

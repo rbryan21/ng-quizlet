@@ -6,8 +6,10 @@ const config = require('../config/database');
 const FlashcardSet = require('../models/flashcardset');
 
 // Add new flashcard set
-router.post('/flashcardset', (req, res, next) => {
-
+router.post('/create', (req, res, next) => {
+    var name = req.body.subject;
+    var flashcards = req.body.flashset;
+    console.log('First card', flashcards[0]);
 });
 
 // Update flash card set

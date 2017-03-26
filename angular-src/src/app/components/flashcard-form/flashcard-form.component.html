@@ -4,7 +4,7 @@
       <div class="margin-20">
         <h3>Add Flashcard</h3>
       </div>
-      <form [formGroup]="myForm" novalidate (ngSubmit)="save(myForm)">
+      <form [formGroup]="myForm" novalidate (submit)="saveFlashcardSet()">
         <div class="form-group">
           <label>Subject</label>
           <input type="text" class="form-control" formControlName="subject">

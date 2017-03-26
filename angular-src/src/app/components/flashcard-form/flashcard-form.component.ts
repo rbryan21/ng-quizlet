@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormArray, FormBuilder } from '@angular/forms';
-import { Flashcard } from '../flashcard-form/flashset/flashcard.interface'
+import { Flashcard } from '../flashcard-form/flashset/flashcard.interface';
+import { FlashcardService } from '../../services/flashcard.service';
+import { FlashMessagesService } from 'angular2-flash-messages';
 
 
 @Component({
@@ -13,7 +15,11 @@ export class FlashcardFormComponent implements OnInit {
 
   public myForm: FormGroup;
 
-    constructor(private _fb: FormBuilder) { }
+    constructor(
+        private _fb: FormBuilder,
+        private flashcardService: FlashcardService,
+        private flashMessage: FlashMessagesService,
+        ) { }
 
     ngOnInit() {
         this.myForm = this._fb.group({
@@ -54,9 +60,14 @@ export class FlashcardFormComponent implements OnInit {
         control.removeAt(i);
     }
 
-    save(model: Flashcard) {
-        // call API to save
-        // ...
-        console.log(model);
+    saveFlashcardSet() {
+    this.flashcardService.addFlashcardSet(JSON.stringify(this.myForm.value)).subscribe(data => {
+      if (data.success) {
+        this.flashMessage.show('Successfully added!', {cssClass: 'alert-success', timeout: 3000});
+      } else {
+        this.flashMessage.show(data.message, {cssClass: 'alert-danger', timeout: 3000});
+      }
+    });
+
     }
 }
