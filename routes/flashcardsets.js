@@ -33,8 +33,20 @@ router.put('/flashcardset', (req, res, next) => {
 });
 
 // Get flash card sets
-router.get('/flashcardset', (req, res, next) => {
-
+router.get('/:email', (req, res, next) => {
+    var email = req.params.email;
+    var flashcardSets = [];
+    FlashcardSet.getFlashcardSetsForUser(email, function(err, incomingFlashcardSets) {
+        if (err) throw err;
+        if (incomingFlashcardSets.length <= 0) {
+            console.log('hi');
+            return res.json({success: false, msg:'No flashcard sets created'});
+        }
+        incomingFlashcardSets.forEach(function(incomingSet) {
+            flashcardSets.push(incomingSet);
+        });
+        return res.json({flashcardSets : flashcardSets});
+    });
 });
 
 // Delete flash card sets

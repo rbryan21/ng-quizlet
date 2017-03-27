@@ -36,8 +36,8 @@ module.exports.getFlashcardSetById = function(id, callback) {
     FlashcardSet.findById(id, callback);
 }
 
-module.exports.getFlashcardSetsForUser = function(username, callback) {
-    const query = {email: username};
+module.exports.getFlashcardSetsForUser = function(email, callback) {
+    const query = {"author.email": email};
     FlashcardSet.find(query, callback);
 }
 
