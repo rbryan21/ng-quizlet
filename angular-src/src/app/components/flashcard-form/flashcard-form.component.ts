@@ -21,7 +21,7 @@ export class FlashcardFormComponent implements OnInit {
     constructor(
         private _fb: FormBuilder,
         private flashcardService: FlashcardService,
-        private flashMessage: FlashMessagesService,
+        private flashMessage: FlashMessagesService
         ) { }
 
     ngOnInit() {

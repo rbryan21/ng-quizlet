@@ -39,13 +39,12 @@ router.get('/:email', (req, res, next) => {
     FlashcardSet.getFlashcardSetsForUser(email, function(err, incomingFlashcardSets) {
         if (err) throw err;
         if (incomingFlashcardSets.length <= 0) {
-            console.log('hi');
-            return res.json({success: false, msg:'No flashcard sets created'});
+            res.json({success: false, msg:'No flashcard sets created'});
         }
         incomingFlashcardSets.forEach(function(incomingSet) {
             flashcardSets.push(incomingSet);
         });
-        return res.json({flashcardSets : flashcardSets});
+        res.json({success: true, flashcardSets : flashcardSets});
     });
 });
 
