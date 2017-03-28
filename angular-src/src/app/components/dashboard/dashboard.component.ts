@@ -2,8 +2,6 @@ import { Component, OnInit} from '@angular/core';
 import { FlashcardService } from '../../services/flashcard.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
 
-
-
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -14,6 +12,9 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class DashboardComponent implements OnInit {
   title = "Dashboard";
+  setNames: String[];
+  firstName: String;
+  lastName: String;
  
   
   constructor(
@@ -21,12 +22,11 @@ export class DashboardComponent implements OnInit {
         private flashMessage: FlashMessagesService
   ) { }
 
-  getFlashcards() {
+  createFlashcardSets() {
     var userJSON = JSON.parse(localStorage.getItem('user'));
     this.flashcardService.getFlashcardSets(userJSON.email).subscribe(data => {
         if (data.success) {
           // User has flashcards
-          console.log(data.flashcardSets); // array of flashcard sets
         } else {
           // User does not
           console.log(data.msg); 
@@ -35,9 +35,8 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-  
-
-    
+    this.firstName = JSON.parse(localStorage.getItem('user')).firstName;
+    this.lastName = JSON.parse(localStorage.getItem("user")).lastName;
   }
 
 }
