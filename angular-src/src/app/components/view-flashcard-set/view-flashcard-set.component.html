@@ -1,50 +1,17 @@
-<div class="container">
-  <h2>View Study Sets</h2>
-  <div class="btn btn-group btn-group-lg">
-    <button type="button" class="btn btn-warning">Study Sets</button>
-    <button type="button"class="btn btn-primary">Classes</button>
-    <button type="button" class="btn btn-default">User</button>
-  </div> 
-  <hr>
+<h1>
+  View Study Sets</h1>
+<hr>
+
+<div (click)="onDivClick()" class="card" *ngIf="showdef===false">
+  <div *ngFor="let term of flashset, let i = index">
+    <h3>{{ term.term }}</h3>
+  </div>
+</div>
 
 
-  <table class="table table-bordered">
-    <thead><td colspan="3">
-      <tr>
-        <th class="row-1 row-subject"><p>terms | username</p>
-        <h4>Subject Name</h4></th>     
-      </tr></td>     
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>term 1</strong>
-            <p>definition contents</p>
-        </td>  
-        <td><strong>term 2</strong>
-            <p>definition contents</p>
-        <td><strong>term 3</strong>
-            <p>definition contents</p>   
-      </tr>
-    </tbody>
-  </table>
 
-<!---- THIS TABLE SETUP NEEDS TO BE PUT IN AN ARRAY TO BE DESPLAYED INSTEAD OF HARD-CODING A BUNCH OF TABLES -->
-  <table class="table table-bordered">
-    <thead><td colspan="3">
-      <tr>
-        <th class="row-1 row-subject"><p>terms | username</p>
-        <p>Subject Name</p></th>     
-      </tr></td>     
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>term 1</strong>
-            <p>definition contents</p>
-        </td>  
-        <td><strong>term 2</strong>
-            <p>definition contents</p>
-        <td><strong>term 3</strong>
-            <p>definition contents</p>   
-      </tr>
-    </tbody>
-  </table>
+<div class="card" *ngIf="showdef===true">
+  <div *ngFor="let term of flashset, let i = index">
+    <h3>{{ term.definition }}</h3>
+  </div>
+</div>

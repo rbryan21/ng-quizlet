@@ -1,15 +1,9 @@
-.table {
-  border: 4px;
-  width: 80%;
-  border-style: solid;
-  border-color: lightgray;
-  border-bottom-color: lightgrey; 
+
+.card {
+  width: 550px;
+  background: lightgoldenrodyellow;
+  height: 400px;
+  text-align: center;
+  padding: 10%; 
 }
 
-.table:hover {
-  border-bottom-color: yellow;
-}
-
-.row-1 {
-  padding: 10px;
-}
