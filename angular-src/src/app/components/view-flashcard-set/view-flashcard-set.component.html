@@ -2,7 +2,23 @@
   View Study Sets</h1>
 <hr>
 
-<div (click)="onDivClick()" class="card" *ngIf="showdef===false">
+<div (click)="onDivClick" class="flip"> 
+        <div class="card"> 
+            <div *ngFor="let term of flashset" class="face front"> 
+                Front
+                <span><h4>{{ term.term}}</h4></span>
+            </div> 
+            <div class="face back"> 
+                Back
+              
+            </div> 
+        </div> 
+    </div> 
+
+
+
+
+<div (click)="onDivClick()" class="card2" *ngIf="showdef===false">
   <div *ngFor="let term of flashset, let i = index">
     <h3>{{ term.term }}</h3>
   </div>
@@ -10,7 +26,7 @@
 
 
 
-<div class="card" *ngIf="showdef===true">
+<div class="card2" *ngIf="showdef===true">
   <div *ngFor="let term of flashset, let i = index">
     <h3>{{ term.definition }}</h3>
   </div>

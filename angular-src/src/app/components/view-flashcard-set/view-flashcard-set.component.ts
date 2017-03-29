@@ -22,12 +22,6 @@ flashset =[
     {subject: 'Algebra Fundamentals Ch6', term: 'Variable', definition: 'a symbol (like x or y) that is used in mathematical or logical expressions to represent a variable quantity'}
     ];
 
-    onDivClick() {
-      
-    
-
-    }
-
   constructor() { }
 
   ngOnInit() {
