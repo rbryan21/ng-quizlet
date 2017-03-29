@@ -1,6 +1,22 @@
 <h1 highlight>Welcome {{ firstName }} {{ lastName }} <h1>
-<a (click)="getFlashcards()" style="cursor: default">
+<a (click)="getFlashcardSets()" style="cursor: default">
     Click me
 </a>
+
+
+<div class="sets" *ngIf="flashcardSets.length > 0">
+    <h1>Flashcard Sets</h1>
+    <div class="panel panel-default" *ngFor="let flashcardSet of flashcardSets">
+        <h4>{{ flashcardSet.name }}<span><a href="view-flashcard-set" type="button" class="btn btn-primary pull-right">View</a></span></h4>
+    </div>
+    <button type="button" (click)="goToCreate()" class="btn btn-primary">Create New Set</button>
+</div>
+
+<div *ngIf="flashcardSets.length == 0">
+
+    <h3>You don't have any flashcard sets.</h3>
+    <button type="button" (click)="goToCreate()" class="btn btn-success">Create</button>
+</div>
+<div class="background"></div>
 
 
