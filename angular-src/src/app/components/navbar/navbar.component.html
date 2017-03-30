@@ -13,15 +13,13 @@
 
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-           <ul class="nav navbar-nav">
+           <ul class="nav navbar-nav navbar-left">
                 <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['/']">Home <span class="sr-only">(current)</span></a></li>
-                <li [routerLinkActive]="['active']"><a [routerLink]="['/login']">Login</a></li>
-                <li [routerLinkActive]="['active']"><a [routerLink]="['/signup']">Signup</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li [routerLinkActive]="['active']"><a [routerLink]="['/dashboard']">Dashboard</a></li>
-                <li [routerLinkActive]="['active']"><a [routerLink]="['/flashcard']">FlashCard</a></li>
-                <li><a (click)="onLogoutClick()" href="#">Logout</a></li>
+                <li *ngIf="!isUserSignedIn()"><a [routerLink]="['/login']">Login</a></li>
+                <li *ngIf="isUserSignedIn()"><a (click)="onLogoutClick()" href="#">Logout</a></li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->

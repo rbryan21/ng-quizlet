@@ -16,6 +16,10 @@ export class AuthService {
             .map(res => res.json());
     }
 
+    isSignedIn() {
+        return this.user == null ? false : true;
+    }
+
     // if it's successful 
     authenticateUser(user) {
         let headers = new Headers();
