@@ -17,7 +17,7 @@ export class AuthService {
     }
 
     isSignedIn() {
-        return this.user == null ? false : true;
+        return (this.user == null && this.authToken == null) ? false : true;
     }
 
     // if it's successful 
@@ -36,6 +36,7 @@ export class AuthService {
     };
 
     logout() {
+        console.log("user logged out");
         this.authToken = null;
         this.user = null;
         localStorage.clear();
