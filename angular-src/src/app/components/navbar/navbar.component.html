@@ -19,6 +19,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li [routerLinkActive]="['active']"><a [routerLink]="['/dashboard']">Dashboard</a></li>
                 <li *ngIf="!isUserSignedIn()"><a [routerLink]="['/login']">Login</a></li>
+                <li *ngIf="!isUserSignedIn()"><a [routerLink]="['/signup']">Signup</a></li>
                 <li *ngIf="isUserSignedIn()"><a (click)="onLogoutClick()" href="#">Logout</a></li>
             </ul>
         </div>
