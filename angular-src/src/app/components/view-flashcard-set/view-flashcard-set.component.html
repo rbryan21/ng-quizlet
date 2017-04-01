@@ -1,14 +1,7 @@
 <h1>You are viewing Study Set Name</h1>
 <hr>
 
-
-        <div [ngClass]="{flip : true}" (click)="nameClass = true" (mouseleave)="nameClass = false" #myname>
-        <div class="card">
-          <div *ngIf="!nameClass" [ngClass]="{ 'flipped' : !nameClass, 'face front' : true }"> Term </div>
-          <div *ngIf="nameClass" [ngClass]="{ 'flipped' : nameClass , 'face back' : true}"> Definition </div>
-        </div>
-      </div>
-
+{{ flashcardSet.name }}
 
 
 

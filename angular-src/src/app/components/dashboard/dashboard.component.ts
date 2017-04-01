@@ -29,6 +29,11 @@ export class DashboardComponent implements OnInit {
     this.router.navigate(['flashcard']);
   }
 
+  goToView(flashcardSet) {
+    let link = ['/view-flashcard-set', flashcardSet._id];
+    this.router.navigate(link);
+  } 
+
   getFlashcardSets() {
     var userJSON = JSON.parse(localStorage.getItem('user'));
     this.flashcardService.getFlashcardSets(userJSON.email).subscribe(data => {
@@ -42,6 +47,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.getFlashcardSets();
+    console.log(this.flashcardSets);
     this.firstName = JSON.parse(localStorage.getItem('user')).firstName;
     this.lastName = JSON.parse(localStorage.getItem("user")).lastName;
   }

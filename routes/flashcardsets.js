@@ -32,6 +32,19 @@ router.put('/flashcardset', (req, res, next) => {
 
 });
 
+router.get('/set/:id', (req, res, next) => {
+    var id = req.params.id;
+    FlashcardSet.getFlashcardSetById(id, function(err, incomingFlashcardSet) {
+        if (err) throw err;
+        if (incomingFlashcardSet.length <= 0) {
+            res.json({success: false, msg: 'No flashcard set found with id ' + id});
+        } else {
+            res.json({success: true, flashcardSet : incomingFlashcardSet});
+        }
+
+    });
+});
+
 // Get flash card sets
 router.get('/:email', (req, res, next) => {
     var email = req.params.email;
@@ -40,11 +53,13 @@ router.get('/:email', (req, res, next) => {
         if (err) throw err;
         if (incomingFlashcardSets.length <= 0) {
             res.json({success: false, msg:'No flashcard sets created'});
+        } else {
+            incomingFlashcardSets.forEach(function(incomingSet) {
+                flashcardSets.push(incomingSet);
+            });
+            res.json({success: true, flashcardSets : flashcardSets});
         }
-        incomingFlashcardSets.forEach(function(incomingSet) {
-            flashcardSets.push(incomingSet);
-        });
-        res.json({success: true, flashcardSets : flashcardSets});
+
     });
 });
 

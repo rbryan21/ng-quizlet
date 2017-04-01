@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router, Params } from '@angular/router';
+
+import { FlashcardService } from '../../services/flashcard.service';
 
 
 @Component({
@@ -7,30 +10,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-flashcard-set.component.css']
 })
 export class ViewFlashcardSetComponent implements OnInit {
+  flashcardSet = [];
 
+  constructor(
+    private flashcardService: FlashcardService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
-
-
-
-showdef = false;
-
-flashcardSetName =[
-    {user: 'Katrina', subject: 'Calculus Ch1'},
-    {user: 'Katrina', subject: 'Calculus Ch2'},
-    {user: 'Katrina', subject: 'Principles of Management Ch1'},
-    {user: 'Katrina', subject: 'Algebra Fundamentals Ch6'}
-    ];
-
-flashset =[
-    {subject:'Calculus', term: 'cos x', definition: 'd/dx sin x'},
-    {subject: 'Principles of Management Ch1', term: 'Katrina', definition: 'Calculus Ch2'},
-    {subject: 'Calculus', term: 'function', definition: 'every x paired with 1 y'},
-    {subject: 'Algebra Fundamentals Ch6', term: 'Variable', definition: 'a symbol (like x or y) that is used in mathematical or logical expressions to represent a variable quantity'}
-    ];
-
-  constructor() { }
-
-  ngOnInit() {
+  ngOnInit(): void {
+    this.route.params.forEach((params: Params) => {
+          let id = params['id'];
+          console.log('idd = ', id);
+          this.flashcardService.getFlashcardSet(id).subscribe(data => {
+            if (data.success) {
+              console.log(data);
+              this.flashcardSet = data.flashcardSet; 
+            } else {
+              let link = ['/dashboard'];
+              this.router.navigate(link);
+            }
+          });
+    });
   }
 
 }
