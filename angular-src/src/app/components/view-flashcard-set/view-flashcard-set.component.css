@@ -4,8 +4,8 @@
     
     .tp-box {
       position: relative;
-      width: 200px;
-      height: 100px;
+      width: 600px;
+      height: 400px;
       margin: 3rem auto;
       transform-style: preserve-3d;
       transition: transform 1s;
@@ -17,16 +17,20 @@
       backface-visibility: hidden;
       color: #fff;
       text-align: center;
-      line-height: 100px;
-      font-size: 24px;
+      line-height: 300px;
+      font-size: 35px;
       font-weight: 700;
       cursor: pointer;
       user-select: none;
     }
     .tp-box__front {
-      background: #f30d36;
+      background: #4286f4;
     }
     .tp-box__back {
-      background: #23262d;
-      transform: rotateY(179.9deg);
+      background: #4286f4;
+      transform: rotateX(179.9deg);
+    }
+
+    p {
+      font-size: 18px;
     }

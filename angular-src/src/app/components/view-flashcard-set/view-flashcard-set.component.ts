@@ -1,6 +1,8 @@
 import { Component, OnInit, trigger, state, style, transition, animate, HostListener } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
+
 import { FlashcardService } from '../../services/flashcard.service';
+
 
 @Component({
   selector: 'app-view-flashcard-set',
@@ -9,7 +11,7 @@ import { FlashcardService } from '../../services/flashcard.service';
   animations: [
       trigger('flipState', [
         state('active', style({
-          transform: 'rotateY(179.9deg)'
+          transform: 'rotateX(179.9deg)'
         })),
         state('inactive', style({
           transform: 'rotateY(0)'
@@ -31,7 +33,7 @@ export class ViewFlashcardSetComponent implements OnInit {
   flip: string = 'inactive';
 
   onKey(event: any) { 
-    console.log(this.flashcards.length);
+    console.log('flashcard length = ', this.flashcards.length);
     console.log(event);
     switch (event.key) {
       case 'ArrowRight':
@@ -40,8 +42,8 @@ export class ViewFlashcardSetComponent implements OnInit {
           console.log('currentCardIndex = ', this.currentCardIndex);
         }
         break;
-      case 'ArrowLeft':
-        if (this.currentCardIndex > this.flashcards.length-2) {
+      case 'ArrowLeft':    
+        if (this.currentCardIndex > 0) {
           this.currentCardIndex--;
           console.log('currentCardIndex = ', this.currentCardIndex);
         }
@@ -59,6 +61,11 @@ export class ViewFlashcardSetComponent implements OnInit {
     this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
   }
 
+  returnToDash() {
+    let link = ['/dashboard'];
+    this.router.navigate(link);
+  }
+
   constructor(
     private flashcardService: FlashcardService,
     private route: ActivatedRoute,
@@ -72,6 +79,7 @@ export class ViewFlashcardSetComponent implements OnInit {
           console.log('idd = ', id);
           this.flashcardService.getFlashcardSet(id).subscribe(data => {
             if (data.success) {
+              // console.log(data.flashcardSet.flashcards[0].term);
               this.name = data.flashcardSet.name;
               this.flashcards = data.flashcardSet.flashcards; 
               console.log('flashcards = ', this.flashcards);
@@ -82,4 +90,5 @@ export class ViewFlashcardSetComponent implements OnInit {
           });
     });
   }
+
 }
