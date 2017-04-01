@@ -12,6 +12,7 @@ import { FlashMessagesService } from 'angular2-flash-messages';
 })
 export class DashboardComponent implements OnInit {
   title = "Dashboard";
+  username = "Katrina"
   
   flashcardSetName =[
     {user: 'Katrina', subject: 'Calculus Ch1'},
@@ -19,6 +20,8 @@ export class DashboardComponent implements OnInit {
     {user: 'Katrina', subject: 'Principles of Management Ch1'},
     {user: 'Katrina', subject: 'Algebra Fundamentals Ch6'}
     ];
+
+    
  
   constructor(
         private flashcardService: FlashcardService,

@@ -6,32 +6,49 @@
 
 }
 
-h1 {
-  color: white;
-}
-
-h2 {
-  color: black;
-}
-
-.jumbotron {
-  max-width: 100%;
-  background-image: url(/src/app/images/potts-ggc.png);
-  opacity: .6;
-  background-repeat: no-repeat;
-  background-size: cover;
-
-}
-#statment {
-  padding: 20px;
-}
-
-.page-header {
-  padding: 20px;
-}
-
 ul li:hover {
   color: orange;
   font-weight: bold;
   font-size: 18px;
+}
+
+
+header .header-content {
+  position: relative;
+  text-align: center;
+  padding: 100px 15px 100px;
+  width: 100%;
+  background: url(/src/app/images/header.jpg) no-repeat center center fixed; 
+  opacity: .9;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-height: auto;
+  color: white;
+  
+}
+header .header-content .header-content-inner h1 {
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 70px;
+  color: white;
+}
+
+header .header-content .header-content-inner hr {
+  margin: 30px auto;
+}
+
+header .header-content .header-content-inner p {
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 20px;
+  margin: 20%;
+}
+
+body {
+  
+
 }
