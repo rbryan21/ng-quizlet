@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 const config = require('../config/database');
 
-// User Schema
+// Flashcard Schema
 const FlashcardSetSchema = mongoose.Schema({
     name: {
         type: String,

@@ -24,8 +24,9 @@ const appRoutes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'view-flashcard-set', component: ViewFlashcardSetComponent},
-  {path: 'flashcard', component: FlashcardFormComponent}
+  {path: 'view-flashcard-set/:id', component: ViewFlashcardSetComponent},
+  {path: 'flashcard', component: FlashcardFormComponent},
+  {path: 'animation', component: AnimationComponent}
 ]
 
 @NgModule({
@@ -39,8 +40,6 @@ const appRoutes: Routes = [
     HomeComponent,
     FlashcardFormComponent,
     FlashsetComponent
-    
-    
   ],
   imports: [
     BrowserModule,

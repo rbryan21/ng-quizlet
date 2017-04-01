@@ -22,8 +22,10 @@
     "@angular/router": "^3.4.0",
     "angular2-flash-messages": "^1.0.5",
     "core-js": "^2.4.1",
+    "jquery": "^3.2.1",
     "mime-db": "^1.27.0",
     "rxjs": "^5.1.0",
+    "typescript": "^2.0.10",
     "zone.js": "^0.7.6"
   },
   "devDependencies": {
