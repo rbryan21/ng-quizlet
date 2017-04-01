@@ -1,7 +1,22 @@
-<h1>You are viewing Study Set Name</h1>
+<h1>You are viewing Study Set {{ name }}</h1>
 <hr>
 
-{{ flashcardSet.name }}
+
+<div class="sets" *ngIf="flashcards.length > 0">
+    <div *ngFor="let flashcard of flashcards; let i=index">
+      <div *ngIf="i == currentCardIndex" class="tp-wrapper">
+        <div class="tp-box" (click)="toggleFlip()" [@flipState]="flip">
+          <div class="tp-box__side tp-box__front"> {{ flashcard.term }}
+          </div>
+          <div class="tp-box__side tp-box__back">  {{ flashcard.definition }}
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+  <input (keyup)="onKey($event)">
+  <p>{{index}}</p>
 
 
 
