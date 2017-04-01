@@ -1,6 +1,7 @@
 <h1>You are viewing Study Set {{ name }}</h1>
 <hr>
 
+<button class="btn btn-lg" (click)="returnToDash()">Return to dashboard</button>
 
 <div class="sets" *ngIf="flashcards.length > 0">
     <div *ngFor="let flashcard of flashcards; let i=index">
@@ -15,8 +16,7 @@
     </div>
 </div>
 
-  <input (keyup)="onKey($event)">
-  <p>{{index}}</p>
+<p align="center">You are viewing card {{ currentCardIndex + 1 }} of {{ flashcards.length }}</p>
 
 
 

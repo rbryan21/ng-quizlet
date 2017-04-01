@@ -8,16 +8,15 @@ import { Router } from '@angular/router';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css'],
   moduleId: module.id
-  
 
 })
 export class DashboardComponent implements OnInit {
   title = "Dashboard";
+
   firstName: String;
   lastName: String;
   flashcardSets = [];
  
-  
   constructor(
         private flashcardService: FlashcardService,
         private flashMessage: FlashMessagesService,

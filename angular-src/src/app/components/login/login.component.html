@@ -1,14 +1,32 @@
-<h1 class="page-header">
+
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-2 sidenav">
+    </div>
+    <div class="col-sm-8 text-left"> 
+      <h1 class="page-header">
   Login Page</h1>
 <form (submit)="onLoginSubmit()" class="form-inline">
+ 
   <div class="form-group">
-    <label><b>Email</b></label>
+    <label ><b>Email</b></label>
     <input type="text" [(ngModel)]="email" placeholder="enter email" name="email" size="50">
   </div>
+ 
   <div class="form-group">
+    <br>
     <label><b>Password</b></label>
-    <input type="password" [(ngModel)]="password" placeholder="enter password" name="password" size="50">
+    
+    <input type="password" [(ngModel)]="password" placeholder="enter password" name="password" size="46">
+   
   </div>
-  <input type="submit" class="btn btn-primary" value="Login">
+  <div class="btn-space">
+  <input type="submit" class="btn btn-primary btn-md"  value="Login">
+  </div>
 </form>
-
+    </div>
+    <div class="col-sm-2 sidenav">
+      
+    </div>
+  </div>
+</div>

@@ -1,8 +1,6 @@
 import { Component, OnInit, trigger, state, style, transition, animate, HostListener } from '@angular/core';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-
 import { FlashcardService } from '../../services/flashcard.service';
-
 
 @Component({
   selector: 'app-view-flashcard-set',
@@ -61,10 +59,6 @@ export class ViewFlashcardSetComponent implements OnInit {
     this.flip = (this.flip == 'inactive') ? 'active' : 'inactive';
   }
 
-  currentCard() {
-    return 1;
-  }
-
   constructor(
     private flashcardService: FlashcardService,
     private route: ActivatedRoute,
@@ -78,7 +72,6 @@ export class ViewFlashcardSetComponent implements OnInit {
           console.log('idd = ', id);
           this.flashcardService.getFlashcardSet(id).subscribe(data => {
             if (data.success) {
-              // console.log(data.flashcardSet.flashcards[0].term);
               this.name = data.flashcardSet.name;
               this.flashcards = data.flashcardSet.flashcards; 
               console.log('flashcards = ', this.flashcards);
@@ -89,5 +82,4 @@ export class ViewFlashcardSetComponent implements OnInit {
           });
     });
   }
-
 }

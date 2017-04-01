@@ -18,7 +18,6 @@ import { FlashcardService } from './services/flashcard.service';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { FlashcardFormComponent } from './components/flashcard-form/flashcard-form.component';
 import { FlashsetComponent } from './components/flashcard-form/flashset/flashset.component';
-import { AnimationComponent } from './components/animation/animation.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -40,10 +39,7 @@ const appRoutes: Routes = [
     ViewFlashcardSetComponent,
     HomeComponent,
     FlashcardFormComponent,
-    FlashsetComponent,
-    AnimationComponent
-    
-    
+    FlashsetComponent
   ],
   imports: [
     BrowserModule,
