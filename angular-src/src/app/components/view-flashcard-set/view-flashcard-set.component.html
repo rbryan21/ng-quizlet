@@ -3,9 +3,11 @@
 
 <button class="btn btn-lg" (click)="returnToDash()">Return to dashboard</button>
 
+ 
+
 <div class="sets" *ngIf="flashcards.length > 0">
     <div *ngFor="let flashcard of flashcards; let i=index">
-      <div *ngIf="i == currentCardIndex" class="tp-wrapper">
+      <div *ngIf="i == currentCardIndex" class="tp-wrapper">   
         <div class="tp-box" (click)="toggleFlip()" [@flipState]="flip">
           <div class="tp-box__side tp-box__front"> {{ flashcard.term }}
           </div>

@@ -1,9 +1,9 @@
 /* Full-width input fields */
 input[type=text], input[type=password] {
-    width: 100%;
+    width: 97%;
     padding: 12px 20px;
     margin: 8px 0;
-    display: inline-flex;
+    
     border: 1px solid #ccc;
     box-sizing: border-box;
 }
@@ -16,26 +16,19 @@ button {
     margin: 8px 0;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 10%;
 }
 
-
-/* Float cancel and signup buttons and add an equal width */
-.signupbtn {
-    float: center;
-    width: 100%;
+button:hover {
+    color: green;
+    text-shadow: gold;
+    font-size: 18px;
 }
+
 
 /* Add padding to container elements */
 .container {
     padding: 16px;
-}
-
-/* Clear floats */
-.clearfix::after {
-    content: "";
-    clear: both;
-    display: table;
 }
 
 /* Change styles for cancel button and signup button on extra small screens */

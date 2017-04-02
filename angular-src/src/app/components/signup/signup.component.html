@@ -1,27 +1,58 @@
-<h2>Signup Form</h2>
 
-<form (submit)="onSignUpSubmit()" style="border:1px solid #ccc">
-  <div class="container">
+<div class="containter">
+  <div class="row">
+    <div class="col-md-2">
+       
+    </div>
+    <div class="col-md-8 middleDiv">
+       <h2 style="padding-bottom: 20px; font-size: 40px">Signup Form</h2>
+     
+      <div class="well well-sm">
+        
+        <form class="form" (submit)="onSignUpSubmit()" style="border:1px solid #ccc">
 
-    <label><b>First Name</b></label>
-    <input type="text" [(ngModel)]="firstName" placeholder="Enter First Name" name="firstName">
+          <div class="container">
 
-    <label><b>Last Name</b></label>
-    <input type="text" [(ngModel)]="lastName" placeholder="Enter Last Name" name="lastName">
+            <div class="row">
+              <div class="form-group col-lg-8">
+                <label><b>First Name</b></label>
+                <input type="text" [(ngModel)]="firstName" placeholder="Enter First Name" name="firstName">
+              </div>
+            </div>
 
-    <label><b>Email</b></label>
-    <input type="text" [(ngModel)]="email" placeholder="Enter Email" name="email">
+            <div class="row">
+              <div class="form-group col-lg-8">
+                <label><b>Last Name</b></label>
+                <input type="text" [(ngModel)]="lastName" placeholder="Enter Last Name" name="lastName">
+              </div>
+            </div>
 
-    <label><b>Password</b></label>
-    <input type="password" [(ngModel)]="password" placeholder="Enter Password" name="password">
+            <div class="row">
+              <div class="form-group col-lg-8">
+                <label><b>Email</b></label>
+                <input type="text" [(ngModel)]="email" placeholder="Enter Email" name="email">
+              </div>
+            </div>
 
-    <label><b>Repeat Password</b></label>
-    <input type="password" [(ngModel)]="passwordRepeat" placeholder="Repeat Password" name="passwordRepeat">
-   
+            <div class="row">
+              <div class="form-group col-lg-8">
+                <label><b>Password</b></label>
+                <input type="password" [(ngModel)]="password" placeholder="Enter Password" name="password">
+              </div>
+            </div>
 
-    <div class="clearfix">
-      
-      <button type="submit" class="btn btn-primary btn-block signupbtn">Sign Up</button>
+            <div class="row">
+              <div class="form-group col-lg-8">
+                <label><b>Repeat Password</b></label>
+                <input type="password" [(ngModel)]="passwordRepeat" placeholder="Repeat Password" name="passwordRepeat">
+              </div>
+            </div>
+
+            <div class="signupbtn"><button type="submit" class="btn btn-primary">Sign Up</button></div>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-</form>
+</div>
+
