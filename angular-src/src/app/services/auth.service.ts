@@ -16,6 +16,10 @@ export class AuthService {
             .map(res => res.json());
     }
 
+    isSignedIn() {
+        return (this.user == null && this.authToken == null) ? false : true;
+    }
+
     // if it's successful 
     authenticateUser(user) {
         let headers = new Headers();
@@ -32,6 +36,7 @@ export class AuthService {
     };
 
     logout() {
+        console.log("user logged out");
         this.authToken = null;
         this.user = null;
         localStorage.clear();

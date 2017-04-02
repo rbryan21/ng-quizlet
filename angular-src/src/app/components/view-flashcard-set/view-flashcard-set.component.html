@@ -1,33 +1,26 @@
-<h1>
-  View Study Sets</h1>
+<h1>You are viewing Study Set {{ name }}</h1>
 <hr>
 
-<div (click)="onDivClick" class="flip"> 
-        <div class="card"> 
-            <div *ngFor="let term of flashset" class="face front"> 
-                Front
-                <span><h4>{{ term.term}}</h4></span>
-            </div> 
-            <div class="face back"> 
-                Back
-              
-            </div> 
-        </div> 
-    </div> 
+<button class="btn btn-lg" (click)="returnToDash()">Return to dashboard</button>
 
-
-
-
-<div (click)="onDivClick()" class="card2" *ngIf="showdef===false">
-  <div *ngFor="let term of flashset, let i = index">
-    <h3>{{ term.term }}</h3>
-  </div>
+<div class="sets" *ngIf="flashcards.length > 0">
+    <div *ngFor="let flashcard of flashcards; let i=index">
+      <div *ngIf="i == currentCardIndex" class="tp-wrapper">
+        <div class="tp-box" (click)="toggleFlip()" [@flipState]="flip">
+          <div class="tp-box__side tp-box__front"> {{ flashcard.term }}
+          </div>
+          <div class="tp-box__side tp-box__back">  {{ flashcard.definition }}
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
 
+<p align="center">You are viewing card {{ currentCardIndex + 1 }} of {{ flashcards.length }}</p>
 
 
-<div class="card2" *ngIf="showdef===true">
-  <div *ngFor="let term of flashset, let i = index">
-    <h3>{{ term.definition }}</h3>
-  </div>
-</div>
+
+
+
+
+

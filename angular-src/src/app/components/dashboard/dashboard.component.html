@@ -1,27 +1,18 @@
-<h1 highlight>{{ title }}
-    <a (click)="getFlashcards()" style="cursor: default">Click me</a>
-    <h3>Welcome {{ username }}</h3>
-</h1>
+<h1 highlight>Welcome {{ firstName }} {{ lastName }} <h1>
 
-<div class="container-fluid text-center">    
-  <div class="row content">
-    <div class="col-sm-2 sidenav">
-    </div>
-    <div class="col-sm-8 text-left"> 
-<div class="sets" *ngIf="flashcardSetName.length > 0">
+<div class="sets" *ngIf="flashcardSets.length > 0">
     <h1>Flashcard Sets</h1>
-    <div class="panel panel-default" *ngFor="let flashcard of flashcardSetName">
-       
-        <h3>{{ flashcard.subject }}<span><a href="view-flashcard-set" type="button" class="btn btn-primary pull-right">View</a></span></h3>
-
+    <div class="panel panel-default" *ngFor="let flashcardSet of flashcardSets">
+        <h4>{{ flashcardSet.name }}<span><a (click)="goToView(flashcardSet)" type="button" class="btn btn-primary pull-right">View</a></span></h4>
     </div>
+
     <button type="button" class="btn btn-primary pull-right">Create New Set</button>
+
 </div>
 
-<div *ngIf="flashcardSetName.length == 0">
+<div *ngIf="flashcardSets.length == 0">
 
     <h3>You don't have any flashcard sets.</h3>
-    <button type="button" class="btn btn-success">Create</button>
+    <button type="button" (click)="goToCreate()" class="btn btn-success">Create</button>
 </div>
 <div class="background"></div>
-

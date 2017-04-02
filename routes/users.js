@@ -16,8 +16,10 @@ router.post('/register', (req, res, next) => {
 
     User.addUser(newUser, (err, user) => {
         if (err) {
+            console.log('failed to register user: ', newUser, err);
             res.json({success: false, msg:'Failed to register user'});
         } else {
+            console.log('registered user: ', user);
             res.json({success: true, msg:'User successfully registered'});
         }
     });
@@ -29,6 +31,7 @@ router.post('/authenticate', (req, res, next) => {
     const password = req.body.password; // get password from form
 
     User.getUserByEmail(email, (err, user) => {
+        console.log('user found = ', user);
         if (err) throw err;
         if (!user) { // no user found
             return res.json({success: false, message: 'User not found'});
@@ -46,7 +49,8 @@ router.post('/authenticate', (req, res, next) => {
                     token: 'JWT ' + token,
                     user: {
                         id: user._id,
-                        name: user.name,
+                        firstName: user.firstName,
+                        lastName: user.lastName,
                         email: user.email
                     }
                 })
