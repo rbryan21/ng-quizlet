@@ -18,7 +18,7 @@ header .header-content {
   text-align: center;
   padding: 100px 15px 100px;
   width: 100%;
-  background: url(/src/app/images/header.jpg) no-repeat center center fixed; 
+  background: url("/src/app/images/header.jpg") no-repeat center center fixed; 
   opacity: .9;
   -webkit-background-size: cover;
   -moz-background-size: cover;
