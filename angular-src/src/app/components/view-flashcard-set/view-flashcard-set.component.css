@@ -17,18 +17,23 @@
       backface-visibility: hidden;
       color: #fff;
       text-align: center;
-      line-height: 300px;
-      font-size: 35px;
       font-weight: 700;
       cursor: pointer;
       user-select: none;
+      max-width: 600px;
+      word-wrap: break-word;
     }
     .tp-box__front {
+      vertical-align: middle;
       background: #4286f4;
+      font-size: 3.5em;
+      padding: 1em .5em;
     }
     .tp-box__back {
       background: #4286f4;
       transform: rotateX(179.9deg);
+      font-size: 1.5em;
+      padding: 4em .5em;
     }
 
     p {
