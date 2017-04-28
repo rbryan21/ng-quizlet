@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="margin-20">
-        <h3>Add Flashcard</h3>
+        <h3>Create a new flashcard set</h3>
       </div>
       <form [formGroup]="myForm" novalidate (submit)="saveFlashcardSet()">
         <div class="form-group">
@@ -28,12 +28,12 @@
 
         <div class="margin-20">
           <a (click)="addFlashset()" style="cursor: default">
-            Add another flashset +
+            Add Flashcard
           </a>
         </div>
 
         <div class="margin-20">
-          <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Submit</button>
+          <button type="submit" class="btn btn-primary pull-right" [disabled]="!myForm.valid">Create Set!</button>
         </div>
         <div class="clearfix"></div>
 

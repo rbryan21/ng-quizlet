@@ -3,6 +3,7 @@ import { Validators, FormGroup, FormArray, FormBuilder } from '@angular/forms';
 import { Flashcard } from '../flashcard-form/flashset/flashcard.interface';
 import { FlashcardService } from '../../services/flashcard.service';
 import { FlashMessagesService } from 'angular2-flash-messages';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -21,7 +22,8 @@ export class FlashcardFormComponent implements OnInit {
     constructor(
         private _fb: FormBuilder,
         private flashcardService: FlashcardService,
-        private flashMessage: FlashMessagesService
+        private flashMessage: FlashMessagesService,
+        private router: Router
         ) { }
 
     ngOnInit() {
@@ -33,11 +35,6 @@ export class FlashcardFormComponent implements OnInit {
         
         // add address
         this.addFlashset();
-        
-        /* subscribe to addresses value changes */
-        // this.myForm.controls['addresses'].valueChanges.subscribe(x => {
-        //   console.log(x);
-        // })
     }
 
     initFlashset() {
@@ -65,8 +62,10 @@ export class FlashcardFormComponent implements OnInit {
     saveFlashcardSet() {
     this.flashcardService.addFlashcardSet(JSON.stringify(this.myForm.value)).subscribe(data => {
       if (data.success) {
+        this.router.navigate(['dashboard']);
         this.flashMessage.show('Successfully added!', {cssClass: 'alert-success', timeout: 3000});
       } else {
+        this.router.navigate(['dashboard']);
         this.flashMessage.show(data.message, {cssClass: 'alert-danger', timeout: 3000});
       }
     });

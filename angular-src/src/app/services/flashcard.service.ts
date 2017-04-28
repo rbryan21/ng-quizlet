@@ -13,14 +13,14 @@ export class FlashcardService {
   addFlashcardSet(flashcardSet) {
         let headers = new Headers();
         headers.append('Content-Type', 'application/json');
-        return this.http.post('http://localhost:3000/flashcardsets/create', flashcardSet, { headers: headers })
+        return this.http.post('/flashcardsets/create', flashcardSet, { headers: headers })
             .map(res => res.json());
   }
 
   getFlashcardSets(email) {
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
-      return this.http.get('http://localhost:3000/flashcardsets/' + email, { headers: headers })
+      return this.http.get('/flashcardsets/' + email, { headers: headers })
         .map(res => res.json());
   }
 
@@ -28,7 +28,7 @@ export class FlashcardService {
       console.log('id = ', id);
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
-      return this.http.get('http://localhost:3000/flashcardsets/set/' + id, { headers: headers })
+      return this.http.get('/flashcardsets/set/' + id, { headers: headers })
         .map(res => res.json());
   }
 

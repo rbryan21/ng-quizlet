@@ -31,7 +31,6 @@ router.post('/authenticate', (req, res, next) => {
     const password = req.body.password; // get password from form
 
     User.getUserByEmail(email, (err, user) => {
-        console.log('user found = ', user);
         if (err) throw err;
         if (!user) { // no user found
             return res.json({success: false, message: 'User not found'});
