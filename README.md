@@ -1,4 +1,4 @@
-# ng-quizlet-ripoff
+# ng-quizlet-redux
 ng-quiz-let-ripoff is an application created using the MEAN stack with the new and improved "Angular 2" for the Emerging Technologies Project 2 class at GGC.
 
 ## Created By ##
