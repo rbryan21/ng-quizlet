@@ -5,7 +5,7 @@ ng-quiz-let-ripoff is an application created using the MEAN stack with the new a
 - [*Robert Bryan*](https://github.com/rbryan21)
 - [*Katrina Smith*](https://github.com/FienxSmith)
 
-**Live Application Link:** 
+**Live Application Link:** [Live Link](https://quizlet-ripoff.herokuapp.com/)
 
 **Repository Location URL:** [GitHub Repo](https://github.com/rbryan21/ng-quizlet-ripoff)
 
