@@ -32,6 +32,16 @@ router.post('/authenticate', (req, res, next) => {
 
     User.getUserByEmail(email, (err, user) => {
         console.log('user found = ', user);
+
+        // creating plain user object to satisfy sign method requirements
+        var userObject = {
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.email,
+            password: user.password,
+            id: user._id
+        };
+
         if (err) throw err;
         if (!user) { // no user found
             return res.json({success: false, message: 'User not found'});
@@ -40,7 +50,7 @@ router.post('/authenticate', (req, res, next) => {
         User.comparePassword(password, user.password, (err, isMatch) => { // compare the entered password to the user's password within db
             if (err) throw err;
             if (isMatch) {
-                const token = jwt.sign(user, config.secret, {
+                const token = jwt.sign(userObject, config.secret, {
                     expiresIn: 604800 // 1 week
                 });
 
